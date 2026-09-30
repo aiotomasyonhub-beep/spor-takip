@@ -1,0 +1,94 @@
+@import 'tailwindcss';
+
+/* Anlamsal renk token'ları: bg-bg, bg-surface, text-fg, text-muted, border-line, bg-accent ... */
+@theme inline {
+  --color-bg: var(--bg);
+  --color-surface: var(--surface);
+  --color-surface-2: var(--surface-2);
+  --color-line: var(--line);
+  --color-fg: var(--fg);
+  --color-muted: var(--muted);
+  --color-accent: var(--accent);
+  --color-accent-fg: var(--accent-fg);
+  --color-warn: var(--warn);
+  --color-danger: var(--danger);
+  --color-info: var(--info);
+}
+
+:root,
+:root[data-theme='dark'] {
+  --bg: #0b0f14;
+  --surface: #131a22;
+  --surface-2: #1c2530;
+  --line: #2a3542;
+  --fg: #e9eef4;
+  --muted: #93a0b0;
+  --accent: #a3e635;
+  --accent-fg: #0b0f14;
+  --warn: #fbbf24;
+  --danger: #f87171;
+  --info: #7cb4f5;
+  color-scheme: dark;
+}
+
+:root[data-theme='light'] {
+  --bg: #f3f5f7;
+  --surface: #ffffff;
+  --surface-2: #eef1f4;
+  --line: #d6dce3;
+  --fg: #0f1720;
+  --muted: #566273;
+  --accent: #4d7c0f;
+  --accent-fg: #ffffff;
+  --warn: #a15c07;
+  --danger: #c62828;
+  --info: #1d5fbf;
+  color-scheme: light;
+}
+
+html {
+  /* Salonda okunabilirlik için taban yazı boyutu büyük */
+  font-size: 18px;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--fg);
+  font-family:
+    system-ui,
+    -apple-system,
+    'Segoe UI',
+    Roboto,
+    sans-serif;
+  overscroll-behavior-y: none;
+}
+
+button {
+  cursor: pointer;
+  touch-action: manipulation;
+}
+
+input {
+  touch-action: manipulation;
+}
+
+/* iOS: odaklanınca yakınlaştırmayı engellemek için giriş yazıları >= 16px */
+input,
+select,
+textarea {
+  font-size: max(1rem, 16px);
+}
+
+.tabular {
+  font-variant-numeric: tabular-nums;
+}
+
+.pt-safe {
+  padding-top: env(safe-area-inset-top);
+}
+.pb-safe {
+  padding-bottom: env(safe-area-inset-bottom);
+}
